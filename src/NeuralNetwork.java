@@ -74,20 +74,22 @@ public class NeuralNetwork {
         //A list to store the new input-node objects
         ArrayList<InputNode> inputsList = new ArrayList<>();
 
+        //Initialize random number generator
+        Random rnd = new Random();
+        rnd.setSeed(System.currentTimeMillis());
+
         //Get all the inputs entered by the user and create input-node objects for each
         for(int i=0; i< userInputsList.size(); i++){
             String name = "input" + i;
             InputNode inputNode = new InputNode(name, userInputsList.indexOf(i));
-                //Initialize random number generator
-                Random rnd = new Random();
-                rnd.setSeed(System.currentTimeMillis());
+
 
             //Set initial weights of input nodes
             inputNode.setWeight(rnd.nextDouble());
 
             //Add the node to the list
             inputsList.add(inputNode);
-            System.out.print("\nINITIAL WEIGHTS: ------==>>> "+ inputNode.getName() +": "+ inputNode.getWeight() + " node2: " + inputNode.getWeight());
+            System.out.print("\nINITIAL SYNAPSE WEIGHTS: ------==>>> "+ inputNode.getName() +": "+ inputNode.getWeight() + " node2: " + inputNode.getWeight());
         }
 
         //Give the output node the input-nodes list
@@ -125,11 +127,11 @@ public class NeuralNetwork {
                 }
 
                 //If error too big, break
-                if(outputNode.getError() > 1000){
+                if(outputNode.getError() > 100000){
                     System.out.print("\n\n>>> Error: error has grown too big! <<<\n\n");
                     break;
                 }
-                if(outputNode.getError() < -1000){
+                if(outputNode.getError() < -100000){
                     System.out.print("\n\n>>> Error: error has grown too big! <<<\n\n");
                     break;
                 }
