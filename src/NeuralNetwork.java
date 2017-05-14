@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Created by lordmcbrian on 14/05/2017.
  */
-public class Network {
+public class NeuralNetwork {
     public static void main(String[] args){
 
         //Set our variables ==========================================================================#
