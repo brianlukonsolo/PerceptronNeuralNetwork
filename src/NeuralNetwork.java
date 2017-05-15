@@ -115,7 +115,8 @@ public class NeuralNetwork {
 
                 //If acceptable error level is reached, break
                 if((outputNode.getOutput() - TARGET_OUTPUT) > -ACCEPTABLE_ERROR_LEVEL && (outputNode.getOutput() - TARGET_OUTPUT) < ACCEPTABLE_ERROR_LEVEL){
-                    System.out.print("\n\n>>> Success!: Target output achieved, lordmcbrian! <<<\n\n");
+                    System.out.print("\n\n>>> Success!: Target output achieved, lordmcbrian! <<<");
+                    System.out.print("\n>>> Target output: " + outputNode.getTargetOutput() + " Actual output: " + outputNode.getOutput() + "<<<\n\n");
                     break;
                 }
 
