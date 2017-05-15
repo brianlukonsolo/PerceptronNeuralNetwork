@@ -89,7 +89,7 @@ public class NeuralNetwork {
 
             //Add the node to the list
             inputsList.add(inputNode);
-            System.out.print("\nINITIAL SYNAPSE WEIGHTS: ------==>>> "+ inputNode.getName() +": "+ inputNode.getWeight() + " node2: " + inputNode.getWeight());
+            System.out.print("\nINITIAL SYNAPSE WEIGHTS: ------==>>> "+ inputNode.getName() +": "+ inputNode.getWeight());
         }
 
         //Give the output node the input-nodes list
@@ -115,8 +115,18 @@ public class NeuralNetwork {
 
                 //If acceptable error level is reached, break
                 if((outputNode.getOutput() - TARGET_OUTPUT) > -ACCEPTABLE_ERROR_LEVEL && (outputNode.getOutput() - TARGET_OUTPUT) < ACCEPTABLE_ERROR_LEVEL){
-                    System.out.print("\n\n>>> Success!: Target output achieved, lordmcbrian! <<<");
-                    System.out.print("\n>>> Target output: " + outputNode.getTargetOutput() + " Actual output: " + outputNode.getOutput() + "<<<\n\n");
+                    System.out.print("\n\n>>>### Success!: Target output achieved, lordmcbrian! ###<<<");
+
+                    String inputs_in_list="";
+                    String weights_in_list="";
+                    for(InputNode i: inputsList) {
+                        inputs_in_list = inputs_in_list + ", " + i.getInput();
+                        weights_in_list = weights_in_list + ", " + i.getWeight();
+                    }
+                    System.out.print("\n>>> [ Original inputs:  " + inputs_in_list + "] <<<");
+                    System.out.print("\n>>> [ Final synapse weights:  " + weights_in_list + "] <<<");
+
+                    System.out.print("\n>>> [ Target output: " + outputNode.getTargetOutput() + "] [ Actual output: " + outputNode.getOutput() + "] <<<\n\n");
                     break;
                 }
 
