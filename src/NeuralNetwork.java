@@ -119,13 +119,13 @@ public class NeuralNetwork {
                     String inputs_in_list="";
                     String weights_in_list="";
                     for(InputNode i: inputsList) {
-                        inputs_in_list = inputs_in_list + ">> " + i.getInput();
+                        inputs_in_list = inputs_in_list + " --> " + i.getInput();
                         weights_in_list = weights_in_list + ", " + i.getWeight();
                     }
-                    System.out.print("\n>>> [ Original inputs:  " + inputs_in_list + "] <<<");
-                    System.out.print("\n>>> [ Final synapse weights:  " + weights_in_list + "] <<<");
+                    System.out.print("\n>>> [ Original inputs:  " + inputs_in_list + " ] <<<");
+                    System.out.print("\n>>> [ Final synapse weights:  " + weights_in_list + " ] <<<");
 
-                    System.out.print("\n>>> [ Target output: " + outputNode.getTargetOutput() + "] [ Actual output: " + outputNode.getOutput() + "] <<<\n\n");
+                    System.out.print("\n>>> [ Target output: " + outputNode.getTargetOutput() + " ] [ Actual output: " + outputNode.getOutput() + " ] <<<\n\n");
                     break;
                 }
 
@@ -137,12 +137,12 @@ public class NeuralNetwork {
                 }
 
                 //If error too big, break
-                if(outputNode.getError() > 100000){
-                    System.out.print("\n\n>>> Error: error has grown too big! <<<\n\n");
+                if(outputNode.getError() > 10000000){
+                    System.out.print("\n\n>>> Error: Learning failed, error has grown too big! <<<\n\n");
                     break;
                 }
-                if(outputNode.getError() < -100000){
-                    System.out.print("\n\n>>> Error: error has grown too big! <<<\n\n");
+                if(outputNode.getError() < -10000000){
+                    System.out.print("\n\n>>> Error: Learning failed, error has grown too big! <<<\n\n");
                     break;
                 }
 
